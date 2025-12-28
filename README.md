@@ -1,6 +1,11 @@
 # Arquitetura AWS Cross-Region com VPC Peering e Alta Disponibilidade
 
+[English version](./README-en.md)
+
+**Nota:** Consulte o [Guia de Uso (How-to-Use)](./how-2-use.md) para instruções passo a passo sobre a implantação deste projeto.
+
 **Visão Geral**
+
 Arquitetura distribuída entre as regiões **sa-east-1 (São Paulo)** e **us-east-2 (Ohio)** projetada para isolamento total. O tráfego externo é admitido via Application Load Balancer (ALB) em Alta Disponibilidade, enquanto a comunicação interna e o gerenciamento utilizam VPC Peering e **VPC Endpoints** para garantir máxima segurança sem exposição à internet pública.
 
 ## 1. Estrutura de Rede
