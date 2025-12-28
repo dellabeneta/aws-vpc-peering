@@ -112,9 +112,9 @@ resource "aws_instance" "ohio_db" {
   user_data = <<-EOF
               #!/bin/bash
               # Install MySQL Server for manual configuration later
-              dnf install -y mysql-server
-              systemctl enable mysqld
-              systemctl start mysqld
+              dnf install -y mariadb105-server
+              systemctl enable mariadb
+              systemctl start mariadb
 
               systemctl enable amazon-ssm-agent
               systemctl start amazon-ssm-agent
