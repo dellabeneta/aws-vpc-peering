@@ -1,6 +1,4 @@
-################################################################################
 # SÃO PAULO (sa-east-1) - VPC Endpoints
-################################################################################
 
 # Security Group for Endpoints in São Paulo
 resource "aws_security_group" "sp_endpoints_sg" {
@@ -65,9 +63,7 @@ resource "aws_vpc_endpoint" "sp_s3" {
 }
 
 
-################################################################################
 # OHIO (us-east-2) - VPC Endpoints
-################################################################################
 
 # Security Group for Endpoints in Ohio
 resource "aws_security_group" "ohio_endpoints_sg" {

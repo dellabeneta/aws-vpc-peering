@@ -1,6 +1,4 @@
-################################################################################
 # DATA SOURCES FOR AMIS
-################################################################################
 
 data "aws_ami" "amazon_linux_sp" {
   most_recent = true
@@ -23,13 +21,7 @@ data "aws_ami" "amazon_linux_ohio" {
   }
 }
 
-################################################################################
-# RANDOM PASSWORD GENERATION (The Senior Way :P)
-################################################################################
-
-################################################################################
 # SÃO PAULO (sa-east-1) - ALB & App EC2
-################################################################################
 
 # Application Load Balancer
 resource "aws_lb" "sp_alb" {
@@ -82,7 +74,14 @@ resource "aws_instance" "sp_app" {
 
   user_data = <<-EOF
               #!/bin/bash
-              # No direct internet access. Management via SSM Endpoints.
+              # Install Nginx via S3 Gateway Endpoints
+              dnf install -y nginx
+              systemctl enable nginx
+              systemctl start nginx
+
+              # Simple welcome page to verify the ALB is forwarding traffic
+              echo "<h1>App is running in Sao Paulo (sa-east-1)</h1><p>Infrastructure: ALB -> EC2 (Private Subnet) -> VPC Peering.</p>" > /usr/share/nginx/html/index.html
+
               systemctl enable amazon-ssm-agent
               systemctl start amazon-ssm-agent
               EOF
@@ -98,11 +97,8 @@ resource "aws_lb_target_group_attachment" "sp_app_attachment" {
   port             = 80
 }
 
-################################################################################
 # OHIO (us-east-2) - Database EC2
-################################################################################
 
-# EC2 instance in PRIVATE subnet (Database)
 resource "aws_instance" "ohio_db" {
   provider                    = aws.ohio
   ami                         = data.aws_ami.amazon_linux_ohio.id
@@ -115,7 +111,11 @@ resource "aws_instance" "ohio_db" {
 
   user_data = <<-EOF
               #!/bin/bash
-              # No direct internet access. Management via SSM Endpoints.
+              # Install MySQL Server for manual configuration later
+              dnf install -y mysql-server
+              systemctl enable mysqld
+              systemctl start mysqld
+
               systemctl enable amazon-ssm-agent
               systemctl start amazon-ssm-agent
               EOF

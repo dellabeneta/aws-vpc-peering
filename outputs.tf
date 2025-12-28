@@ -1,6 +1,4 @@
-################################################################################
 # SÃO PAULO (sa-east-1) - Outputs
-################################################################################
 
 output "sp_vpc_id" {
   description = "The ID of the VPC in São Paulo"
@@ -17,9 +15,7 @@ output "sp_app_private_ip" {
   value       = aws_instance.sp_app.private_ip
 }
 
-################################################################################
 # OHIO (us-east-2) - Outputs
-################################################################################
 
 output "ohio_vpc_id" {
   description = "The ID of the VPC in Ohio"
@@ -31,9 +27,7 @@ output "ohio_db_private_ip" {
   value       = aws_instance.ohio_db.private_ip
 }
 
-################################################################################
 # GLOBAL - Connectivity & Identification
-################################################################################
 
 output "vpc_peering_id" {
   description = "The ID of the VPC Peering connection"

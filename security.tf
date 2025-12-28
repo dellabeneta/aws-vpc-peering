@@ -1,6 +1,4 @@
-################################################################################
 # SÃO PAULO (sa-east-1) - Security Groups
-################################################################################
 
 # Security Group for ALB in São Paulo
 resource "aws_security_group" "sp_alb_sg" {
@@ -79,9 +77,7 @@ resource "aws_security_group" "sp_app_sg" {
   }
 }
 
-################################################################################
 # OHIO (us-east-2) - Security Groups
-################################################################################
 
 # Security Group for MySQL Database in Ohio
 resource "aws_security_group" "ohio_db_sg" {

@@ -6,6 +6,8 @@
 
 **Visão Geral**
 
+![Arquitetura do Projeto](./assets/vpc-peering.drawio.png)
+
 Arquitetura distribuída entre as regiões **sa-east-1 (São Paulo)** e **us-east-2 (Ohio)** projetada para isolamento total. O tráfego externo é admitido via Application Load Balancer (ALB) em Alta Disponibilidade, enquanto a comunicação interna e o gerenciamento utilizam VPC Peering e **VPC Endpoints** para garantir máxima segurança sem exposição à internet pública.
 
 ## 1. Estrutura de Rede

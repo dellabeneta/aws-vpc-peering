@@ -5,6 +5,9 @@
 **Note:** See the [Usage Guide (How-to-Use)](./how-to-use-en.md) for step-by-step instructions on deploying this project.
 
 **Overview**
+
+![Project Architecture](./assets/vpc-peering.drawio.png)
+
 Distributed architecture across **sa-east-1 (São Paulo)** and **us-east-2 (Ohio)** regions designed for total isolation. External traffic is admitted via an Application Load Balancer (ALB) in High Availability, while internal communication and management utilize VPC Peering and **VPC Endpoints** to ensure maximum security without exposure to the public internet.
 
 ## 1. Network Structure

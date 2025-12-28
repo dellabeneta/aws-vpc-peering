@@ -1,6 +1,4 @@
-################################################################################
 # SÃO PAULO (sa-east-1) - Default Provider
-################################################################################
 
 resource "aws_vpc" "sp_vpc" {
   cidr_block           = var.vpc_sp_cidr
@@ -88,9 +86,7 @@ resource "aws_route_table_association" "sp_private_assoc" {
   route_table_id = aws_route_table.sp_private_rt.id
 }
 
-################################################################################
 # OHIO (us-east-2) - Provider: aws.ohio
-################################################################################
 
 resource "aws_vpc" "ohio_vpc" {
   provider             = aws.ohio
