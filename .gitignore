@@ -1,0 +1,26 @@
+# Terraform artifacts
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Terraform Variables (Contains secrets)
+*.tfvars
+*.tfvars.json
+
+# Logs
+*.log
+terraform.tfstate.d/
+
+# Infracost and Reports
+*.infracost
+cost-report.html
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Backup and temp files
+*.bkp
+*.tmp
+assets/.$*
